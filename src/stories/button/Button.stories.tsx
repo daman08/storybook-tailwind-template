@@ -8,7 +8,9 @@ export default {
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
+    label: { control: "text" },
     backgroundColor: { control: "color" },
+    className: { control: "text" },
   },
 } as ComponentMeta<typeof Button>;
 
@@ -20,8 +22,15 @@ export const Default = Template.bind({});
 Default.args = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
   label: "Button",
-  backgroundColor: "#f7f7f7",
-  outline: false,
-  outlineColor: "#000",
-  outlineWidth: 1,
+  backgroundColor: "#0a96fc",
+  className: "",
+};
+
+export const ButtonWithBorder = Template.bind({});
+ButtonWithBorder.args = {
+  ...Default.args,
+  border: false,
+  borderColor: "#000",
+  borderWidth: 1,
+  borderRadius: 12,
 };
